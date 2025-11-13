@@ -1,0 +1,5 @@
+{
+  "name": "Gemini Image Analyzer",
+  "description": "Upload an image and enter a prompt to get a detailed analysis from the Gemini AI model. Explore the power of multimodal AI with a simple and intuitive interface.",
+  "requestFramePermissions": []
+}
