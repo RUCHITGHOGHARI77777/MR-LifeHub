@@ -10,7 +10,7 @@ export const fileToBase64 = (file: File): Promise<string> => {
                 const base64String = reader.result.split(',')[1];
                 resolve(base64String);
             } else {
-                reject(new Error('Failed to read file as base64 string.'));
+                reject(new Error("Couldn't process the selected file. Please try a different image."));
             }
         };
         reader.onerror = (error) => reject(error);

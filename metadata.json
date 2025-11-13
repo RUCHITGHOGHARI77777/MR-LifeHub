@@ -1,5 +1,5 @@
 {
-  "name": "Gemini Image Analyzer",
-  "description": "Upload an image and enter a prompt to get a detailed analysis from the Gemini AI model. Explore the power of multimodal AI with a simple and intuitive interface.",
+  "name": "MR LifeHub",
+  "description": "A project designed to explore mixed reality concepts. MR LifeHub helps you analyze your physical space, organize your workflow, and get AI-powered routine guidance from a simple image upload.",
   "requestFramePermissions": []
 }

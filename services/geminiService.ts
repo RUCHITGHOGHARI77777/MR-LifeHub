@@ -32,7 +32,7 @@ export async function analyzeImage(imageData: ImageData, prompt: string): Promis
         
         return response.text;
     } catch (error) {
-        console.error("Error analyzing image with Gemini:", error);
-        throw new Error("Failed to get analysis from Gemini. Please check the console for more details.");
+        console.error("Error analyzing image with AI model:", error);
+        throw new Error("Sorry, I couldn't get a response from the AI. There might be an issue with the connection or API key.");
     }
 }
