@@ -1,13 +1,6 @@
 
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 
-// Ensure the API key is available
-if (!process.env.API_KEY) {
-    throw new Error("API_KEY environment variable is not set.");
-}
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 interface ImageData {
     mimeType: string;
     data: string;
@@ -15,6 +8,14 @@ interface ImageData {
 
 export async function analyzeImage(imageData: ImageData, prompt: string): Promise<string> {
     try {
+        // Moved instantiation inside the function to prevent a top-level crash on module load.
+        // Any errors related to the API key will now be caught gracefully here.
+        if (!process.env.API_KEY) {
+            throw new Error("API_KEY environment variable is not set.");
+        }
+        
+        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
         const imagePart = {
             inlineData: {
                 mimeType: imageData.mimeType,
@@ -26,7 +27,7 @@ export async function analyzeImage(imageData: ImageData, prompt: string): Promis
         };
 
         const response: GenerateContentResponse = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
+            model: 'gem-2.5-flash',
             contents: { parts: [imagePart, textPart] },
         });
         
