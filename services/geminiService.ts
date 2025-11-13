@@ -27,7 +27,7 @@ export async function analyzeImage(imageData: ImageData, prompt: string): Promis
         };
 
         const response: GenerateContentResponse = await ai.models.generateContent({
-            model: 'gem-2.5-flash',
+            model: 'gemini-2.5-flash',
             contents: { parts: [imagePart, textPart] },
         });
         
